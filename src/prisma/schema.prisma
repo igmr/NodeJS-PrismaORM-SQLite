@@ -1,0 +1,36 @@
+
+datasource db {
+    provider  =  "sqlite"
+    url       =  "file:./../database/dev.db"
+}
+
+generator client {
+    provider     =  "prisma-client-js"
+}
+
+// * https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference
+// * https://www.prisma.io/docs/concepts/database-connectors/sqlite
+// * https://www.prisma.io/docs/concepts/components/prisma-schema/generators
+
+model Project {
+    id           Int        @id @default(autoincrement())
+    name         String     @unique()
+    description  String?
+    createdAt    DateTime   @default(now())
+    updatedAt    DateTime?
+    deleted      Boolean    @default(false)
+    tasks        Task[]
+}
+
+model Task {
+    id           Int        @id  @default(autoincrement())
+    description  String
+    completed    Boolean    @default(false)
+    createdAt    DateTime   @default(now())
+    updatedAt     DateTime?
+    project      Project    @relation(fields: [projectId], references: [id])
+    projectId    Int
+}
+
+// * https://www.prisma.io/docs/concepts/components/prisma-schema/data-model
+// * https://www.prisma.io/docs/concepts/components/prisma-schema/relations
