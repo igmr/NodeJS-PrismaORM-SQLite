@@ -22,7 +22,7 @@ npm run dev
 
 <img src="./docs/model-er.png"
 alt="Modelo entidad relación"
-></img>
+>
 
 ## Script SQL
 
