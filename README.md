@@ -20,9 +20,7 @@ npm run dev
 
 ## Modelo Entidad relación
 
-<img src="./docs/model-er.png"
-alt="Modelo entidad relación"
->
+![Modelo relacional](./docs/model-er.png)
 
 ## Script SQL
 
